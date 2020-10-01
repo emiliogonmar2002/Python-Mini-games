@@ -26,7 +26,13 @@ def circulo_numero():
 
 def ganar(lis0,lis1,lis2,lis3,lis4,lis5,lis6,lis7,lis8,value):
     if lis0=="X" and lis1=="X" and lis2=="X" or lis3=="X" and lis4=="X" and lis5=="X" or lis6=="X" and lis7=="X" and lis8=="X" or lis0=="X" and lis3=="X" and lis6=="X" or lis1=="X" and lis4=="X" and lis7=="X" or lis2=="X" and lis5=="X" and lis8=="X" or lis0=="X" and lis4=="X" and lis8=="X" or lis2=="X" and lis4=="X" and lis6=="X":
-        value += 1
+        value = 1
+    
+    elif lis0=="O" and lis1=="O" and lis2=="O" or lis3=="O" and lis4=="O" and lis5=="O" or lis6=="O" and lis7=="O" and lis8=="O" or lis0=="O" and lis3=="O" and lis6=="O" or lis1=="O" and lis4=="O" and lis7=="O" or lis2=="O" and lis5=="O" and lis8=="O" or lis0=="O" and lis4=="O" and lis8=="O" or lis2=="O" and lis4=="O" and lis6=="O":
+        value = 2
+    
+    elif lis0!="0" and lis1!="1" and lis2!="2" and lis3!="3" and lis4!="4" and lis5!="5" and lis6!="6" and lis7!="7" and lis8!="8":
+        value = 3
 
     return value
 
@@ -80,7 +86,7 @@ while value == 0:
 
     panel(num)
 
-    eleccion_computadora = circulo_numero()
+    value = ganar(lis0,lis1,lis2,lis3,lis4,lis5,lis6,lis7,lis8,value)
 
     computadora = False
 
@@ -127,12 +133,16 @@ while value == 0:
             computadora = False
 
     num = [lis0,lis1,lis2,lis3,lis4,lis5,lis6,lis7,lis8]
+
+    print(f"\nCOMPUTER'S CHOICE: {eleccion_computadora}")
     
     panel(num)
     
     value = ganar(lis0,lis1,lis2,lis3,lis4,lis5,lis6,lis7,lis8,value)
 
 if value == 1:
-    print("FELICIDADES HAS GANADO!!")
+    print("\n*****F E L I C I D A D E S  H A S  G A N A D O!!*****")
 elif value == 2:
-    print("HAS PERDIDO")
+    print("\n***H A S  P E R D I D O***")
+elif value == 3:
+    print("\nEMPATE")
